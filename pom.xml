@@ -20,7 +20,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.10</version>
-            <scope>test</scope>
+            <scope>Test</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
