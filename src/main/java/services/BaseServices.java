@@ -1,4 +1,9 @@
 package services;
 
-public class BaseServices {
+import com.epam.tat.module4.Calculator;
+
+public class BaseServices extends Calculator {
+
+
+
 }

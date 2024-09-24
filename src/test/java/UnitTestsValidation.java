@@ -1,16 +1,19 @@
 import com.epam.tat.module4.Calculator;
+import com.google.inject.Inject;
+import dataproviders.DataProviderClass;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class UnitTestsValidation extends Calculator {
-    public static final UnitTestsValidation unitTestsValidation = new UnitTestsValidation();
-    public static final Calculator calculator = unitTestsValidation;
+public class UnitTestsValidation extends BaseTest {
 
-    @Test(groups = "positive")
-    public void testAdd() {
-        long result = calculator.sum(2, 3);
-        Assert.assertEquals(result, 5, "Addition failed");
+    @Inject
+    Calculator calculator;
+
+    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "getData", groups = "positive")
+    public void testAdd(int[][] objects) {
+        long result = calculator.sum(objects[0][0], objects[0][1]);
+        Assert.assertEquals(result, 3, "Addition failed");
     }
 
     @Test(groups = "positive")
@@ -31,6 +34,7 @@ public class UnitTestsValidation extends Calculator {
         Assert.assertEquals(result, 5.0, "Division failed");
     }
 
+
     @Test(groups = "positive")
     public void testDivideWithPositive() {
         long result = calculator.div(10, 5);
@@ -49,10 +53,10 @@ public class UnitTestsValidation extends Calculator {
         Assert.assertEquals(result, -5, "Negative addition failed");
     }
 
-    @Test(groups = "negative")
-    public void testSubtractNegative() {
-        long result = calculator.sub(-5, 3);
-        Assert.assertEquals(result, -8, "Negative subtraction failed");
+    @Test(dataProviderClass = DataProviderClass.class, dataProvider = "getData", groups = "negative")
+    public void testSubtractNegative(int[][] objects) {
+        long result = calculator.sub(objects[0][0], objects[0][1]);
+        Assert.assertEquals(result, -1, "Negative subtraction failed");
     }
 
     @Test(groups = "negative")
