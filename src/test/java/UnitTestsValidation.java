@@ -1,8 +1,9 @@
-import com.epam.tat.module4.Calculator;
+
 import com.google.inject.Inject;
 import dataproviders.DataProviderClass;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import services.Calculator;
 
 
 public class UnitTestsValidation extends BaseTest {
