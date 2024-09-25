@@ -1,8 +1,9 @@
 package guice;
 
-import com.epam.tat.module4.Calculator;
+
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
+import services.Calculator;
 
 public class TestModule extends AbstractModule {
     @Override
