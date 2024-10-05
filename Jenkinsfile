@@ -17,8 +17,8 @@ pipeline {
         stage('Build and Test') {
             steps {
                 // Build the project and run tests
-                sh 'mvn clean install'
-                sh 'mvn test'
+                bat 'mvn clean install'
+                bat 'mvn test'
             }
         }
 
