@@ -14,7 +14,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from the repository
-                git branch: 'main', url: 'https://github.com/ptkarthik/TestNGProject.git' // Update with your repo URL
+                git branch: 'master', url: 'https://github.com/ptkarthik/TestNGProject.git' // Update with your repo URL
             }
         }
 
