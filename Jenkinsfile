@@ -1,21 +1,34 @@
-node {
-    // Checkout the code from SCM
-    stage('Checkout') {
-        checkout scm  // Checkout code from your Git repository
+pipeline {
+    agent any
+
+    tools {
+        maven 'MAVEN_HOME'
+        jdk 'JAVA'
     }
 
-   // Build the project using Maven
-    stage('Build') {
-        bat 'build.bat'  // Run your batch file to build the project
-    }
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from the repository
+                git branch: 'feature/testngprojects', url: 'https://github.com/ptkarthik/TestNGProject.git'
+            }
+        }
 
-    // Run TestNG tests
-    stage('Test') {
-        bat 'mvn test -DsuiteXmlFile=testng.xml'  // Run the tests specified in testng.xml
-    }
+        stage('Build and Test') {
+            steps {
+                // Build the project and run tests
+                bat 'mvn clean install'
+                bat 'mvn test'
+            }
+        }
 
-    // Notify success
-    stage('Notify') {
-        echo 'Build and Tests completed successfully!'  // Notification stage
+        stage('Archive Results') {
+            steps {
+                // Archive test results
+                junit '**/target/surefire-reports/*.xml'
+                archiveArtifacts artifacts: '**/target/surefire-reports/*.html', allowEmptyArchive: true
+                archiveArtifacts artifacts: '**/target/ExtentReports/*', allowEmptyArchive: true
+            }
+        }
     }
 }
