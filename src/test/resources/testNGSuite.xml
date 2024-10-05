@@ -3,6 +3,7 @@
 <suite name="My Test Suite" thread-count="2" parallel="true">
     <listeners>
         <listener class-name="org.listener.Listenerclass"></listener>
+        <listener class-name="extent.ExtentReportListener"></listener>
     </listeners>
 
     <test name="My Test">
