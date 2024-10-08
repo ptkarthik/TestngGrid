@@ -7,15 +7,9 @@
     </listeners>
 
     <test name="My Test">
-        <groups>
-            <run>
-                <include name="positive"/>
-                <include name="negative"/>
-                <!--                <exclude name="negative"></exclude>-->
-            </run>
-        </groups>
         <classes>
-            <class name="UnitTestsValidation"></class>
+            <class name="LaunchSiteTest"></class>
         </classes>
+
     </test>
 </suite>
