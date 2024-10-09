@@ -20,7 +20,6 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://amazon.in");
     }
