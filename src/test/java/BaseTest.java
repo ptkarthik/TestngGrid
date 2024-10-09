@@ -11,6 +11,8 @@ public class BaseTest {
     protected static Injector injector;
     @Inject
     WebDriver driver;
+    @Inject
+    HomePageServices homePageServices;
 
     public BaseTest() {
         // Initialize the injector here
